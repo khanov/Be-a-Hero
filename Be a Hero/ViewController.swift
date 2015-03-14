@@ -13,7 +13,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
-    
+    @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomSpaceConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +34,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
         submitButton.layer.cornerRadius = 5.0
         updateSubmitButtonState()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
     }
 
+    
+    // MARK: Keyboard
+    
+    func keyboardWillShow(notification: NSNotification) {
+        let info = notification.userInfo
+        let kbRect = info![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
+        let kbCoordinates = view.convertRect(kbRect, fromView: nil)
+        
+        bottomSpaceConstraint.constant = kbCoordinates.height
+        verticalCenterConstraint.active = false
+        bottomSpaceConstraint.active = true
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        bottomSpaceConstraint.active = false
+        verticalCenterConstraint.active = true
+    }
 
+    
     // MARK: Text Fields
     
     @IBAction func textFieldDidChangeEditing(sender: UITextField) {
@@ -55,8 +77,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: Submit Button
     
     @IBAction func submitButtonDidTouch(sender: UIButton) {
-        
-        
         
     }
     

@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ow-l9-Yww">
-                                <rect key="frame" x="36" y="150" width="528" height="300"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ow-l9-Yww" userLabel="Container View">
+                                <rect key="frame" x="36" y="100" width="528" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jIT-NN-tPd">
                                         <rect key="frame" x="8" y="167" width="512" height="30"/>
@@ -117,23 +117,29 @@
                         <constraints>
                             <constraint firstItem="5ow-l9-Yww" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="20" id="3RN-4K-UDq"/>
                             <constraint firstAttribute="centerX" secondItem="5ow-l9-Yww" secondAttribute="centerX" id="Bd9-aO-3WL"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5ow-l9-Yww" secondAttribute="bottom" constant="200" id="K6V-Vo-6JN"/>
                             <constraint firstItem="5ow-l9-Yww" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="KMG-3D-mPa"/>
                             <constraint firstItem="5ow-l9-Yww" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="U86-Hn-jOv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5ow-l9-Yww" secondAttribute="trailing" constant="20" id="bhl-yH-dvD"/>
-                            <constraint firstAttribute="centerY" secondItem="5ow-l9-Yww" secondAttribute="centerY" id="vrn-cI-PvV"/>
+                            <constraint firstAttribute="centerY" secondItem="5ow-l9-Yww" secondAttribute="centerY" constant="50" id="vrn-cI-PvV">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="3RN-4K-UDq"/>
                                 <exclude reference="Bd9-aO-3WL"/>
                                 <exclude reference="U86-Hn-jOv"/>
+                                <exclude reference="K6V-Vo-6JN"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bottomSpaceConstraint" destination="K6V-Vo-6JN" id="qBN-4R-78y"/>
                         <outlet property="emailTextField" destination="sJ6-aJ-SZS" id="jmp-Nt-hgy"/>
                         <outlet property="nameTextField" destination="jIT-NN-tPd" id="fIW-Zw-DJD"/>
                         <outlet property="submitButton" destination="fe4-9y-Xbg" id="6wu-5o-rGt"/>
+                        <outlet property="verticalCenterConstraint" destination="vrn-cI-PvV" id="1D7-jw-csg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
