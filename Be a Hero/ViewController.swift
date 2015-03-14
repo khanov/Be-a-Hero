@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
+import Alamofire
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
@@ -20,10 +22,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         let accentColor = UIColor(red: 112/255.0, green: 161/255.0, blue: 221/255.0, alpha: 1.0)
+        let tintColor = UIColor(red: 141/255.0, green: 54/255.0, blue: 142/255.0, alpha: 1.0)
         
         for textField in [nameTextField, emailTextField] {
             textField.layer.borderColor = accentColor.CGColor
             textField.backgroundColor = UIColor.clearColor()
+            textField.tintColor = tintColor
             textField.layer.borderWidth = 1
             textField.layer.cornerRadius = 5.0
             textField.delegate = self
@@ -77,7 +81,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: Submit Button
     
     @IBAction func submitButtonDidTouch(sender: UIButton) {
+        Defaults["email"] = emailTextField.text
+        Defaults["name"] = nameTextField.text
         
+        let params = ["email": emailTextField.text, "name": nameTextField.text]
+        Alamofire.request(.POST, APISubscribeURL, parameters: params).responseJSON { (_, _, JSON, _) in
+            println(JSON)
+        }
     }
     
     func updateSubmitButtonState() {
