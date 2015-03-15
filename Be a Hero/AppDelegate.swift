@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private(set) var email: String? {
+        set { Defaults["email"] = newValue }
+        get { return Defaults["email"].string }
+    }
+    private(set) var name: String? {
+        set { Defaults["name"] = newValue }
+        get { return Defaults["name"].string }
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if isLoggedIn == false {
+            // If we are not logged in, display sign up screen by overriding initial view controller defined in Storyboard.
+            // Otherwise the initial view controller from Storyboard will be used.
+            
+            let signUpVC = window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as? UIViewController
+            window?.rootViewController = signUpVC
+        }
+    
         return true
     }
 
@@ -40,7 +57,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    var isLoggedIn: Bool {
+        return Defaults.hasKey("email") && Defaults.hasKey("name")
+    }
 
+    func signUpWithName(name: String, email: String) {
+        self.name = name
+        self.email = email
+    }
+    
+    func logOut() {
+        email = nil
+        name = nil
+    }
 
 }
 

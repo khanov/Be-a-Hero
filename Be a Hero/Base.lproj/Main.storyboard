@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mp9-mp-ipL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,7 +8,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SignUpViewController" customModule="Be_a_Hero" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="vXZ-lx-hvc" customClass="SignUpViewController" customModule="Be_a_Hero" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -26,7 +26,7 @@
                                         <color key="tintColor" red="0.55294117649999996" green="0.21176470589999999" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.63137254899999995" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="next"/>
                                         <connections>
                                             <action selector="textFieldDidChangeEditing:" destination="vXZ-lx-hvc" eventType="editingChanged" id="rx2-aQ-48T"/>
                                         </connections>
@@ -37,7 +37,7 @@
                                         <color key="tintColor" red="0.55294117649999996" green="0.21176470589999999" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.43921568630000002" green="0.63137254899999995" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldDidChangeEditing:" destination="vXZ-lx-hvc" eventType="editingChanged" id="QfB-Nn-EHJ"/>
                                         </connections>
@@ -142,10 +142,55 @@
                         <outlet property="nameTextField" destination="jIT-NN-tPd" id="fIW-Zw-DJD"/>
                         <outlet property="submitButton" destination="fe4-9y-Xbg" id="6wu-5o-rGt"/>
                         <outlet property="verticalCenterConstraint" destination="vrn-cI-PvV" id="1D7-jw-csg"/>
+                        <segue destination="mp9-mp-ipL" kind="presentation" identifier="showListNavigationController" modalTransitionStyle="flipHorizontal" id="gxl-ZN-48y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="536" y="975"/>
+        </scene>
+        <!--Kingdom List View Controller-->
+        <scene sceneID="Dao-b9-8ZP">
+            <objects>
+                <viewController storyboardIdentifier="KingdomListViewController" id="o2N-2w-Cwh" customClass="KingdomListViewController" customModule="Be_a_Hero" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGl-qb-iVq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xyr-5T-1Wg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WeJ-V4-rz6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="re1-f9-gFx">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Hgb-n1-AX4">
+                            <connections>
+                                <action selector="logOutButtonDidPress:" destination="o2N-2w-Cwh" id="CCk-xF-kHF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GKe-cf-HDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1965" y="429"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="y38-sL-I9E">
+            <objects>
+                <navigationController storyboardIdentifier="KingdomNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="mp9-mp-ipL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="khF-YD-muB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o2N-2w-Cwh" kind="relationship" relationship="rootViewController" id="feW-Zk-Y7u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cke-ed-dJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1251" y="429"/>
         </scene>
     </scenes>
 </document>

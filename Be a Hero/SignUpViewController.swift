@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyUserDefaults
 import Alamofire
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -81,12 +80,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     // MARK: Submit Button
     
     @IBAction func submitButtonDidTouch(sender: UIButton) {
-        Defaults["email"] = emailTextField.text
-        Defaults["name"] = nameTextField.text
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        appDelegate?.signUpWithName(nameTextField.text, email: emailTextField.text)
         
         let params = ["email": emailTextField.text, "name": nameTextField.text]
         Alamofire.request(.POST, APISubscribeURL, parameters: params).responseJSON { (_, _, JSON, _) in
             println(JSON)
+            
+            self.performSegueWithIdentifier("showListNavigationController", sender: self)
         }
     }
     
