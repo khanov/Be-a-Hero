@@ -85,9 +85,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         appDelegate?.signUpWithName(nameTextField.text, email: emailTextField.text)
         
         let params = ["email": emailTextField.text, "name": nameTextField.text]
-        Alamofire.request(.POST, APISubscribeURL, parameters: params).responseJSON { (_, _, JSON, _) in
-            println(JSON)
+        Alamofire.request(.POST, APISubscribeURL, parameters: params).responseJSON { (_, _, JSON, error) in
             
+            println(JSON)
             self.performSegueWithIdentifier("showListNavigationController", sender: self)
         }
     }

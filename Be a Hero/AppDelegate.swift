@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        window?.tintColor = UIColor(red: 141/255.0, green: 54/255.0, blue: 142/255.0, alpha: 1.0)
+        
         if isLoggedIn == false {
             // If we are not logged in, display sign up screen by overriding initial view controller defined in Storyboard.
             // Otherwise the initial view controller from Storyboard will be used.

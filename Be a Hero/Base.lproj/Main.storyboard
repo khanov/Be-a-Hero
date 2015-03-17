@@ -149,30 +149,46 @@
             </objects>
             <point key="canvasLocation" x="536" y="975"/>
         </scene>
-        <!--Kingdom List View Controller-->
-        <scene sceneID="Dao-b9-8ZP">
+        <!--Kingdoms-->
+        <scene sceneID="IsG-26-AOc">
             <objects>
-                <viewController storyboardIdentifier="KingdomListViewController" id="o2N-2w-Cwh" customClass="KingdomListViewController" customModule="Be_a_Hero" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hGl-qb-iVq"/>
-                        <viewControllerLayoutGuide type="bottom" id="Xyr-5T-1Wg"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WeJ-V4-rz6">
+                <tableViewController storyboardIdentifier="KingdomListViewController" id="MMf-PE-KjA" customClass="ListViewController" customModule="Be_a_Hero" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" id="gHS-Hn-1yx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="re1-f9-gFx">
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="Hgb-n1-AX4">
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="KingdomCell" textLabel="sVb-6U-66a" rowHeight="120" style="IBUITableViewCellStyleDefault" id="c00-4e-yqd">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c00-4e-yqd" id="bGH-NX-WgD">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sVb-6U-66a">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MMf-PE-KjA" id="uUO-Hs-x5R"/>
+                            <outlet property="delegate" destination="MMf-PE-KjA" id="lGz-vG-Nxf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kingdoms" id="HFf-cz-9A1">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="cua-2w-h2Y">
                             <connections>
-                                <action selector="logOutButtonDidPress:" destination="o2N-2w-Cwh" id="CCk-xF-kHF"/>
+                                <action selector="logOutButtonDidPress:" destination="MMf-PE-KjA" id="vi2-qQ-hew"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GKe-cf-HDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7p-Y6-DSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="429"/>
+            <point key="canvasLocation" x="1972" y="424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y38-sL-I9E">
@@ -185,7 +201,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="o2N-2w-Cwh" kind="relationship" relationship="rootViewController" id="feW-Zk-Y7u"/>
+                        <segue destination="MMf-PE-KjA" kind="relationship" relationship="rootViewController" id="h6r-t1-twO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cke-ed-dJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
