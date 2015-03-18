@@ -41,11 +41,14 @@ extension Quest {
         id = json["id"].int!
         name = json["name"].string!
         
-        if json["image"].string == nil {
-            println("warning: Quest #\(id) has no image")
+        if let imageURL = json["image"].string {
+            if let imageData = NSData(contentsOfURL: NSURL(string: imageURL)!) {
+                self.imageData = imageData
+            }
         }
-        if json["description"].string == nil {
-            println("warning: Quest #\(id) has no description")
+        
+        if let infoText = json["description"].string {
+            self.infoText = infoText
         }
         
         let giver = Giver()

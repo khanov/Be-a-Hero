@@ -17,6 +17,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomSpaceConstraint: NSLayoutConstraint!
     
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,12 +41,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         submitButton.layer.cornerRadius = 5.0
         updateSubmitButtonState()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
 
     
-    // MARK: Keyboard
+    // MARK: - Keyboard
     
     func keyboardWillShow(notification: NSNotification) {
         let info = notification.userInfo
@@ -61,7 +69,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     
-    // MARK: Text Fields
+    // MARK: - Text Fields
     
     @IBAction func textFieldDidChangeEditing(sender: UITextField) {
         updateSubmitButtonState()
@@ -77,7 +85,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    // MARK: Submit Button
+    // MARK: - Submit Button
     
     @IBAction func submitButtonDidTouch(sender: UIButton) {
         

@@ -30,7 +30,8 @@ class Quest: RLMObject {
     dynamic var id = 0
     dynamic var name = ""
     dynamic var giver = Giver()
-    dynamic var image = ""
+    dynamic var imageData = NSData()
+    dynamic var infoText = ""
     
     override class func primaryKey() -> String {
         return "id"
