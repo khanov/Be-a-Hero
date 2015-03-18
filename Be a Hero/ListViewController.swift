@@ -15,8 +15,8 @@ class ListViewController: UITableViewController {
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(tableView, selector: "reloadData", name: DataManagerDidUpdateDataNotification, object: nil)
         dataManager.updateData()
     }
@@ -46,7 +46,7 @@ class ListViewController: UITableViewController {
         let kingdom = dataManager.kingdomAtIndex(indexPath.row)
         
         cell.textLabel?.text = kingdom.name
-        cell.imageView?.image = kingdom.photo
+        cell.imageView?.image = kingdom.image
         
         return cell
     }

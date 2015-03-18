@@ -9,26 +9,42 @@
 import UIKit
 import Realm
 
-
 class Kingdom: RLMObject {
-    
-    dynamic var id: Int = 0
-    dynamic var name: String = ""
-    dynamic var image: String = ""
-    
-    // Bad name. Ideally, should have named it 'image' but that name is already used and mapped to match API.
-    var photo: UIImage? {
-        if let imageData = NSData(contentsOfURL: NSURL(string: image)!) {
-            return UIImage(data: imageData)
-        }
-        return nil
-    }
+    dynamic var id = 0
+    dynamic var name = ""
+    dynamic var imageData = NSData()
+    dynamic var climate = ""
+    dynamic var population = 0
+    dynamic var quests = RLMArray(objectClassName: Quest.className())
     
     override class func primaryKey() -> String {
         return "id"
     }
     
     override class func ignoredProperties() -> [AnyObject]! {
-        return ["photo"]
+        return ["image"]
     }
 }
+
+class Quest: RLMObject {
+    dynamic var id = 0
+    dynamic var name = ""
+    dynamic var giver = Giver()
+    dynamic var image = ""
+    
+    override class func primaryKey() -> String {
+        return "id"
+    }
+}
+
+class Giver: RLMObject {
+    dynamic var id = 0
+    dynamic var name = ""
+    dynamic var imageData = NSData()
+    
+    override class func primaryKey() -> String {
+        return "id"
+    }
+}
+
+

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8DEC6293F2288B4E3E686E69 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2E9AB9DF607D89EDA64ABE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A67A8F2A1AB95C9E00D9A099 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A8F291AB95C9E00D9A099 /* DetailViewController.swift */; };
+		A67A8F2C1AB9C55A00D9A099 /* Model+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A8F2B1AB9C55A00D9A099 /* Model+JSON.swift */; };
 		A6F8CE871AB4692D006AA68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F8CE861AB4692D006AA68E /* AppDelegate.swift */; };
 		A6F8CE891AB4692D006AA68E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F8CE881AB4692D006AA68E /* SignUpViewController.swift */; };
 		A6F8CE8C1AB4692D006AA68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6F8CE8A1AB4692D006AA68E /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		56C000F5B41DD39DD8E41592 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A16CCCEE04FDB7149FBDA15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A67A8F291AB95C9E00D9A099 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A67A8F2B1AB9C55A00D9A099 /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+JSON.swift"; sourceTree = "<group>"; };
 		A6F8CE811AB4692D006AA68E /* Be a Hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Be a Hero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6F8CE851AB4692D006AA68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6F8CE861AB4692D006AA68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				A6F8CEAA1AB4AFC1006AA68E /* ListViewController.swift */,
 				A67A8F291AB95C9E00D9A099 /* DetailViewController.swift */,
 				A6F8CEAE1AB59F87006AA68E /* Model.swift */,
+				A67A8F2B1AB9C55A00D9A099 /* Model+JSON.swift */,
 				A6F8CEB01AB5EC96006AA68E /* DataManager.swift */,
 				A6F8CEA61AB480D4006AA68E /* Helpers.swift */,
 				A6F8CE8A1AB4692D006AA68E /* Main.storyboard */,
@@ -243,6 +246,7 @@
 				A6F8CEAB1AB4AFC1006AA68E /* ListViewController.swift in Sources */,
 				A6F8CE871AB4692D006AA68E /* AppDelegate.swift in Sources */,
 				A67A8F2A1AB95C9E00D9A099 /* DetailViewController.swift in Sources */,
+				A67A8F2C1AB9C55A00D9A099 /* Model+JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
