@@ -171,6 +171,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QSS-kK-nWS" kind="show" identifier="showKingdomDetails" id="iYg-Mx-JHt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -189,6 +192,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7p-Y6-DSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1972" y="424"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="v12-NR-zvk">
+            <objects>
+                <viewController id="QSS-kK-nWS" customClass="DetailViewController" customModule="Be_a_Hero" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c5D-x9-3uG"/>
+                        <viewControllerLayoutGuide type="bottom" id="FOi-Nj-zIr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kWk-IK-jOS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fy4-Qk-JCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y38-sL-I9E">
