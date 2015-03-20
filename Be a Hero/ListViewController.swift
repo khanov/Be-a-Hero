@@ -33,13 +33,27 @@ class ListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("KingdomCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("KingdomCell", forIndexPath: indexPath) as KingdomListTableViewCell
         let kingdom = dataManager.kingdomAtIndex(indexPath.row)
         
-        cell.textLabel?.text = kingdom.name
-        cell.imageView?.image = kingdom.image
+        cell.nameLabel?.text = kingdom.name
+        cell.photoView?.image = kingdom.image
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.alpha = 0.7
+    }
+    
+    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.alpha = 1.0
     }
     
     
@@ -64,4 +78,9 @@ class ListViewController: UITableViewController {
         }
     }
     
+}
+
+class KingdomListTableViewCell: UITableViewCell {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var photoView: UIImageView!
 }

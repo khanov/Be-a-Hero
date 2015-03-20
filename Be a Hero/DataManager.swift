@@ -46,9 +46,12 @@ class DataManager {
     private var kingdoms = Kingdom.allObjects().sortedResultsUsingProperty("id", ascending: true)
     
     private func fetchKingdomList() {
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         Alamofire.request(.GET, APIKingdomsURL).responseJSON { (_, _, jsonData, error) in
+            
             if error != nil {
                 println("Error fetching Kingdom list: \(error)")
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 return
             }
             
@@ -60,7 +63,7 @@ class DataManager {
                     self.addOrUpdateKingdomWithJSON(kingdomJSON, inRealm: realm)
                     realm.commitWriteTransaction()
                 }
-                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 println("Kingdom list data fetched and cached successfully.")
             }
         }
@@ -68,15 +71,16 @@ class DataManager {
     
     private func fetchKingdomDetailsWithID(id: Int) {
         let kingdomDetailURL = NSURL(string: String(id), relativeToURL: APIKingdomsURL)!
-        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         Alamofire.request(.GET, kingdomDetailURL).responseJSON { (_, _, jsonData, error) in
+            
             if error != nil {
                 println("Error fetching Kingdom details: \(error)")
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 return
             }
             
             Async.utility {
-                
                 // Persist
                 let realm = RLMRealm.defaultRealm()
                 realm.beginWriteTransaction()
@@ -85,7 +89,7 @@ class DataManager {
                 self.addOrUpdateKingdomWithJSON(kingdomJSON, inRealm: realm)
                 
                 realm.commitWriteTransaction()
-                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 println("Detail info for Kingdom[ID = \(id)] fetched and cached successfully.")
             }
             
