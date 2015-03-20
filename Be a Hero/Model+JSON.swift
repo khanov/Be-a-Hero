@@ -11,12 +11,12 @@ import SwiftyJSON
 
 extension Kingdom {
     func populateWithJSON(json: JSON) {
-        id = json["id"].int!
         name = json["name"].string!
         
         if let population = json["population"].int {
             self.population = population
         }
+        
         if let climate = json["climate"].string {
             self.climate = climate
         }
@@ -30,7 +30,11 @@ extension Kingdom {
             for questJSON in questJSONArray {
                 let quest = Quest()
                 quest.populateWithJSON(questJSON)
-                quests.addObject(quest)
+                
+                let questInRealm = Quest.createOrUpdateInDefaultRealmWithObject(quest)
+                if quests.indexOfObjectWhere("id = \(questInRealm.id)") == UInt(NSNotFound) {
+                    quests.addObject(questInRealm)
+                }
             }
         }
     }
@@ -53,7 +57,8 @@ extension Quest {
         
         let giver = Giver()
         giver.populateWithJSON(json["giver"])
-        self.giver = giver
+        let giverInRealm = Giver.createOrUpdateInDefaultRealmWithObject(giver)
+        self.giver = giverInRealm
     }
 }
 

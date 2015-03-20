@@ -18,20 +18,11 @@ class ListViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         NSNotificationCenter.defaultCenter().addObserver(tableView, selector: "reloadData", name: DataManagerDidUpdateDataNotification, object: nil)
-        dataManager.updateData()
+        dataManager.updateListData()
     }
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(tableView, name: DataManagerDidUpdateDataNotification, object: nil)
-    }
-    
-    @IBAction func logOutButtonDidPress(sender: UIBarButtonItem) {
-        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
-        appDelegate?.logOut()
-        
-        let signUpVC = storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as SignUpViewController
-        signUpVC.modalTransitionStyle = .FlipHorizontal
-        presentViewController(signUpVC, animated: true, completion: nil)
     }
     
     
@@ -54,11 +45,21 @@ class ListViewController: UITableViewController {
     
     // MARK: - Navigation
     
+    @IBAction func logOutButtonDidPress(sender: UIBarButtonItem) {
+        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        appDelegate?.logOut()
+        
+        let signUpVC = storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as SignUpViewController
+        signUpVC.modalTransitionStyle = .FlipHorizontal
+        presentViewController(signUpVC, animated: true, completion: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showKingdomDetails" {
             if let selectedRow = tableView.indexPathForSelectedRow()?.row {
                 let kingdomDetailViewController = segue.destinationViewController as DetailViewController
                 kingdomDetailViewController.kingdom = dataManager.kingdomAtIndex(selectedRow)
+                kingdomDetailViewController.dataManager = dataManager
             }
         }
     }

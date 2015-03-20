@@ -46,6 +46,10 @@ class Giver: RLMObject {
     override class func primaryKey() -> String {
         return "id"
     }
+    
+    override class func ignoredProperties() -> [AnyObject]! {
+        return ["image"]
+    }
 }
 
 

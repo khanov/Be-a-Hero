@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8DEC6293F2288B4E3E686E69 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2E9AB9DF607D89EDA64ABE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A662B9631ABC363F00A62D9F /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = A662B9621ABC363F00A62D9F /* Async.swift */; };
 		A67A8F2A1AB95C9E00D9A099 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A8F291AB95C9E00D9A099 /* DetailViewController.swift */; };
 		A67A8F2C1AB9C55A00D9A099 /* Model+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67A8F2B1AB9C55A00D9A099 /* Model+JSON.swift */; };
 		A6F8CE871AB4692D006AA68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F8CE861AB4692D006AA68E /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		3C2E9AB9DF607D89EDA64ABE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C000F5B41DD39DD8E41592 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6A16CCCEE04FDB7149FBDA15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A662B9621ABC363F00A62D9F /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		A67A8F291AB95C9E00D9A099 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A67A8F2B1AB9C55A00D9A099 /* Model+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Model+JSON.swift"; sourceTree = "<group>"; };
 		A6F8CE811AB4692D006AA68E /* Be a Hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Be a Hero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 		A6F8CE841AB4692D006AA68E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A662B9621ABC363F00A62D9F /* Async.swift */,
 				A6F8CEAC1AB59EC9006AA68E /* RLMSupport.swift */,
 				A6F8CE851AB4692D006AA68E /* Info.plist */,
 			);
@@ -246,6 +249,7 @@
 				A6F8CEAB1AB4AFC1006AA68E /* ListViewController.swift in Sources */,
 				A6F8CE871AB4692D006AA68E /* AppDelegate.swift in Sources */,
 				A67A8F2A1AB95C9E00D9A099 /* DetailViewController.swift in Sources */,
+				A662B9631ABC363F00A62D9F /* Async.swift in Sources */,
 				A67A8F2C1AB9C55A00D9A099 /* Model+JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

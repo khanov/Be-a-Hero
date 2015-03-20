@@ -17,6 +17,15 @@ extension Kingdom {
     }
 }
 
+extension Giver {
+    var image: UIImage? {
+        if imageData.length > 0 {
+            return UIImage(data: imageData)
+        }
+        return nil
+    }
+}
+
 extension String {
     var containsEmailAddress: Bool {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
