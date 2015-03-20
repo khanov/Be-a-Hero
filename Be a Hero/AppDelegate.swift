@@ -65,11 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func signUpWithName(name: String, email: String) {
+        // Save to NSUserDefaults.
         self.name = name
         self.email = email
     }
     
     func logOut() {
+        // Remove from NSUserDefaults.
         email = nil
         name = nil
     }

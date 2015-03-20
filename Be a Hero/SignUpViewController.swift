@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
     
     
     // MARK: - Lifecycle
@@ -45,6 +46,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        containerView.alpha = 0.0
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animateWithDuration(0.75) {
+            self.containerView.alpha = 1.0
+        }
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
@@ -58,6 +71,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let kbRect = info![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
         let kbCoordinates = view.convertRect(kbRect, fromView: nil)
         
+        // Place input fields right above the keyboard.
         bottomSpaceConstraint.constant = kbCoordinates.height
         verticalCenterConstraint.active = false
         bottomSpaceConstraint.active = true
@@ -94,14 +108,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         let params = ["email": emailTextField.text, "name": nameTextField.text]
         Alamofire.request(.POST, APISubscribeURL, parameters: params).responseJSON { (_, _, JSON, error) in
-            
-            println(JSON)
+            println("Successfully posted sign up info to API. Response: \(JSON)")
             self.performSegueWithIdentifier("showListNavigationController", sender: self)
         }
     }
     
     func updateSubmitButtonState() {
-        
         let bothFieldsHaveText = !isEmpty(nameTextField.text) && !isEmpty(emailTextField.text)
         let emailIsValid = emailTextField.text.containsEmailAddress
         

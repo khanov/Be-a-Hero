@@ -139,6 +139,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomSpaceConstraint" destination="K6V-Vo-6JN" id="qBN-4R-78y"/>
+                        <outlet property="containerView" destination="5ow-l9-Yww" id="DNi-yU-kzp"/>
                         <outlet property="emailTextField" destination="sJ6-aJ-SZS" id="jmp-Nt-hgy"/>
                         <outlet property="nameTextField" destination="jIT-NN-tPd" id="fIW-Zw-DJD"/>
                         <outlet property="submitButton" destination="fe4-9y-Xbg" id="6wu-5o-rGt"/>

@@ -46,7 +46,9 @@ class DataManager {
     private var kingdoms = Kingdom.allObjects().sortedResultsUsingProperty("id", ascending: true)
     
     private func fetchKingdomList() {
+        println("Fetching Kingdom list...")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         Alamofire.request(.GET, APIKingdomsURL).responseJSON { (_, _, jsonData, error) in
             
             if error != nil {
@@ -70,8 +72,10 @@ class DataManager {
     }
     
     private func fetchKingdomDetailsWithID(id: Int) {
-        let kingdomDetailURL = NSURL(string: String(id), relativeToURL: APIKingdomsURL)!
+        println("Fetching Kingdom details...")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
+        let kingdomDetailURL = NSURL(string: String(id), relativeToURL: APIKingdomsURL)!
         Alamofire.request(.GET, kingdomDetailURL).responseJSON { (_, _, jsonData, error) in
             
             if error != nil {

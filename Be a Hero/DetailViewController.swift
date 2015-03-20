@@ -19,10 +19,10 @@ class DetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(tableView, selector: "reloadData", name: DataManagerDidUpdateDataNotification, object: nil)
-        title = kingdom.name
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        title = kingdom.name
         dataManager?.updateKingdomData(kingdom)
-        tableView.rowHeight = UITableViewAutomaticDimension //  allow the self-sizing cell mechanism to work
+        tableView.rowHeight = UITableViewAutomaticDimension // allow the self-sizing cell mechanism to work
         tableView.estimatedRowHeight = 174
         tableView.reloadData()
     }

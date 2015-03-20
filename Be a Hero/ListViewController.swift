@@ -26,7 +26,7 @@ class ListViewController: UITableViewController {
     }
     
     
-    // MARK: - Table view data source
+    // MARK: - Table View
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataManager.kingdomCount
@@ -80,7 +80,9 @@ class ListViewController: UITableViewController {
     
 }
 
+
 class KingdomListTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoView: UIImageView!
 }
+
